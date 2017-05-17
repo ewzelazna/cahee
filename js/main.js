@@ -2,6 +2,8 @@
 navTop();
 getGallery();
 getBlog();
+sendForms();
+validation();
 
 // funkcja dodająca fixed do nav
 function navTop () {
@@ -31,8 +33,6 @@ function navTop () {
 
 
 	});
-
-
 }
 
 //scroll menu
@@ -65,7 +65,7 @@ function getGallery() {
 
 	$(".btn-gallery").on("click", function(){
 
-		$('.btn-loader-section').addClass('inactive-link');
+		$('#gallery .btn-loader-section').addClass('inactive-link');
 
 			var html = "",
 				item;
@@ -87,7 +87,7 @@ function getGallery() {
 				}
 
 				$(".photo-gallery").append(html);
-				$('.btn-loader-section').removeClass('inactive-link');
+				$('#gallery .btn-loader-section').removeClass('inactive-link');
 
 
 			}).catch(function(erresponse){
@@ -105,8 +105,7 @@ function getBlog() {
 
 	$(".btn-blog").on("click", function(){
 
-		$('.btn-loader-section').addClass('inactiveLink');
-		$(".sk-circle").css({"display": "block"});
+		$('#blog .btn-loader-section').addClass('inactive-link');
 
 		var html = "",
 			item;
@@ -155,11 +154,125 @@ function getBlog() {
 				}
 
 			$('.gallery-blog').append(html);
-			$(".sk-circle").css({"display": "none"});
-			$('.btn-loader-section').removeClass('inactiveLink');
+			$('#blog .btn-loader-section').removeClass('inactive-link');
 
 		}).catch(function(erresponse){
 		console.log("aaa");
 		});
 	});
 }
+
+//form sending
+
+function sendForms () {
+
+	$("#contact-form").on("submit", function(e){
+		e.preventDefault();
+
+		var form_valid = $('#contact-form').valid();
+
+		if(form_valid){
+
+			$('#contact-form').addClass('inactive-link');
+			$('#contact-form .btn.contact').addClass('inactive-link');
+			$("#contact-form .sk-circle").css({"display": "block"});
+
+			setTimeout(function(){
+
+				$("#contact-form .sk-circle").css({"display": "none"});
+				$('#contact-form .btn.contact').removeClass('inactive-link');
+				$('#contact-form').removeClass('inactive-link');
+
+			}, 4000)
+
+		}
+
+	});
+
+	$("#subscribe-form").on("submit", function(e){
+		e.preventDefault();
+
+		var subscribe_valid = $('#subscribe-form').valid();
+
+		if(subscribe_valid){
+
+			$('#subscribe-form').addClass('inactive-link');
+			$('#subscribe-form .btn.subscribe').addClass('inactive-link');
+			$("#subscribe-form .sk-circle").css({"display": "block"});
+
+			setTimeout(function(){
+
+				$("#subscribe-form .sk-circle").css({"display": "none"});
+				$('#subscribe-form .btn.subscribe').removeClass('inactive-link');
+				$('#subscribe-form').removeClass('inactive-link');
+				$('#subscribe-form').html('<h4>Dziękujemy za subskrypcję <i class="fa fa-check" aria-hidden="true"></i></h4>');
+
+			}, 4000)
+		}
+	});
+
+}
+
+//validation subscribe, validation contact 
+
+function validation() {
+
+	//po wpisaniu tesktu do inputa, usunięcie opacity
+	$('#contact-form .form-group .form-control').on('keyup', function(){
+		var inpt_val = $(this).val();
+
+		if(inpt_val != ""){
+			$(this).addClass('filled');
+		} else {
+			$(this).removeClass('filled');
+		}
+	})
+
+	$.validator.addMethod("regx", function(value, element, regexpr) {
+        return regexpr.test(value);
+    });
+
+    $("#subscribe-form").validate({
+
+		rules: {
+			email: {
+				required: true
+			}
+		},
+		messages: {
+			email: {
+				required: "Please enter your email.",
+				regx: "Please enter a valid email."
+			}
+		}
+	});
+
+	$("#contact-form").validate({
+		rules: {
+			email: {
+				required: true
+			},
+			phone: {
+				required: true,
+				regx: /^[0-9\-\+]{6,15}$/
+			},
+			area: {
+				required: true
+			}
+		},
+		messages: {
+			email: {
+				required: "Please enter your email.",
+
+			},
+			phone: {
+				required: "Please enter your phone number.",
+				regx: "Please enter a valid phone number."
+			},
+		}
+
+	});
+}
+
+
+

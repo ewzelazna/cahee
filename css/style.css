@@ -2,16 +2,6 @@ body {
 	font-family: "Raleway", "Arial", sans-serif;
 }
 
-
-	.wrapper-nav.scroll-top {
-		background-color: #fff;
-		-webkit-box-shadow: 1px 9px 17px -9px rgba(0,0,0,0.75);
-		-moz-box-shadow: 1px 9px 17px -9px rgba(0,0,0,0.75);
-		box-shadow: 1px 9px 17px -9px rgba(0,0,0,0.75);
-		z-index: 1000;
-	}
-
-
 p {
 	font-size: 17px;
 	line-height: 1.45;
@@ -47,11 +37,16 @@ a:link {
 	cursor: default;
 }
 
-.btn-loader-section.inactive-link .sk-circle {
+.fa-check {
+	color: green;
+}
+
+.btn-loader-section.inactive-link .sk-circle,
+.wrapper-btn.inactive-link .sk-circle {
 	display: block;
 }
 
-.btn-loader-section.inactive-link p{
+.btn-loader-section.inactive-link p {
 	display: none;
 }
 
@@ -67,9 +62,11 @@ a.btn-loader-section {
 	-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
 	margin: 0 auto;
+	cursor: pointer;
 }
 
-.btn:focus {
+.btn:focus,
+.btn:visited {
 	color: #fff;
 }
 
@@ -122,7 +119,7 @@ ul.nav.navbar-nav {
 	padding: 5px 0 5px 30px;
  }
 
-button.btn.home {
+.btn.home {
 	background-color: #ff6033;
 	margin-top: 30px;
 	margin-left: 0;
@@ -144,7 +141,7 @@ button.btn.home {
 	padding-bottom: 391px;
 }
 
-.container-home .row-second {
+.row-second {
 	position: relative;
 }
 
@@ -295,14 +292,16 @@ a.btn-group-service:hover {
 	box-shadow: 0px 3px 12px 1px rgba(154,154,156,1);
 }
 
-a.btn-loader-section {
+a.btn-loader-section,
+button.btn {
 	background-color: #5585a2;
 	text-decoration: none;
 	margin-top: 50px;
     margin-bottom: 100px;
 }
 
-.btn-gallery {
+.btn-gallery,
+.btn-blog {
 	height: 100%;
 	text-align: center;
 	position: relative;
@@ -310,7 +309,7 @@ a.btn-loader-section {
 
 .btn-loader p {
 	font-size: 20px;
-	padding-top: 15px;
+	padding-top: 13px;
 }
 
 .wrapper.subscribe {
@@ -334,10 +333,15 @@ a.btn-loader-section {
 	float: left;
 }
 
+.form-group.wrapper-btn.subscribe {
+    position: relative;
+    float: right;
+}
+
 .btn.subscribe {
-	width: 170px;
 	background-color: #96b92c;
-	float: right;
+	width: 170px;
+	margin: 0;
 }
 
 .input-subscribe {
@@ -440,9 +444,6 @@ p.author {
 }
 
 .btn-blog {
-	height: 100%;
-	text-align: center;
-	position: relative;
 	background-color: #f72b3b;
 }
 
@@ -467,7 +468,7 @@ p.author {
 
 .form-group.contact input,
 .form-group.contact textarea,
-.form-group.contact label {
+.form-group.contact label.control-label {
 	background-color: #00c4c4;
 	color: #fff;
 	width: 500px;
@@ -476,12 +477,22 @@ p.author {
 	height: 50px
 }
 
+label.error {
+	color: #cc0000;
+	padding-top: 10px;
+}
+
+input.form-control.error,
+textarea.form-control.error {
+    border: 1px solid #cc0000;
+}
+
 .form-group.contact input,
 .form-group.contact textarea {
 	opacity: .6;
 }
 
-.form-group.contact label {
+.form-group.contact label.control-label {
 	padding: 15px 2px;
 	max-width: none;
 	border-left: 10px solid #355b82;
@@ -509,16 +520,22 @@ p.author {
   color: #fff;
 }
 
+.form-group.wrapper-btn.contact {
+    position: relative;
+    width: 150px;
+}
+
+#contact-form .form-control.filled {
+	opacity: 1;
+}
+
 .btn.contact {
 	height: 50px;
-	width: 150px;
+	width: 100%;
 	font-size: 20px;
 	background-color: #355b82;
 	margin-left: 0;
-}
-
-.section-form-contact {
-	padding-bottom: 50px;
+	margin-top: 30px;
 }
 
 .info-contact {
@@ -638,15 +655,13 @@ p.author {
 	    padding-left: 30px;
 	}
 
-	button.btn.subscribe {
+	a.btn-loader-section.subscribe {
     	float: left;
-    }
+	}
 
 }
 
 @media all and (min-width: 768px) and (max-width: 991px)  {
-
-
 
 	.wrapper-nav {
 		position: fixed;
@@ -736,12 +751,12 @@ p.author {
     }
 
     .wrapper.subscribe {
-    	background-position: 50% 70%;
+    	background-position: 50% 300px;
 	}
 
 	.row-subscribe {
     	padding-top: 0;
-    	padding-bottom: 200px;
+    	padding-bottom: 250px;
 	}
 
     .info-subscribe {
@@ -752,8 +767,8 @@ p.author {
     	margin-bottom: 100px;
     }
 
-    .btn.subscribe {
-    	margin-top: 35px;
+    a.btn-loader-section.subscribe {
+    	margin: 35px auto 0;
     }
 
 	.input-subscribe {
@@ -762,7 +777,7 @@ p.author {
 	}
 
 	.form-group-subscribe,
-	.btn.subscribe,
+	a.btn-loader-section.subscribe,
 	.blog-section,
 	.contact-box-one,
 	.contact-box-two {
@@ -772,10 +787,6 @@ p.author {
 	.blog-img img {
 		min-width: 100%;
 		min-height: 100%;
-	}
-
-	.btn.blog {
-		margin-top: 50px;
 	}
 
 	p.topic {
@@ -788,12 +799,12 @@ p.author {
 
 	.form-group.contact input, 
 	.form-group.contact textarea, 
-	.form-group.contact label {
+	.form-group.contact label.control-label {
     	width: 100%;
 	}
 
-	.btn.contact {
-    	margin: 0 auto;
+	a.btn-loader-section.contact{
+    	margin: 25px auto 50px;
 	}
 
 	.info-contact {
@@ -908,8 +919,9 @@ p.author {
     	width: 150px;
 	}
 
-	.btn.subscribe,
-	.btn.contact {
+	a.btn-loader-section,
+	a.btn-loader-section.subscribe,
+	a.btn-loader-section.contact {
     	width: 100%;
 	}
 

@@ -7,9 +7,10 @@
 		<meta name="keywords" content="" />
 		<meta viewport="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Cahee</title>
-		<link rel="stylesheet" href="css/bootstrap.css"/>
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
 		<link rel="stylesheet" href="css/animations.css" type="text/css"/>
 		<link href="https://fonts.googleapis.com/css?family=Pacifico|Raleway:400,600,700,900" rel="stylesheet">
+		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
 		<link rel="stylesheet" href="css/style.css" type="text/css"/>	
 
 
@@ -192,11 +193,27 @@
 							<h4>Subscribe To Us</h4>
 							<p>Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 						</div>
-						<form class="col-md-8 col-xs-12">
+						<form id="subscribe-form" class="col-md-8 col-xs-12 ">
 							<div class="form-group form-group-subscribe">
-								<input type="email" class="form-control input-subscribe" placeholder="Your email address...">
+								<input type="email" name="email" class="form-control input-subscribe" placeholder="Your email address...">
 							</div>
-							<button type="submit" class="btn subscribe">SUBSCRIBE</button>
+							<div class="form-group wrapper-btn subscribe">
+								<button type="submit" class="btn subscribe">SUBSCRIBE</button>
+								<div class="sk-circle">
+									<div class="sk-circle1 sk-child"></div>
+									<div class="sk-circle2 sk-child"></div>
+									<div class="sk-circle3 sk-child"></div>
+									<div class="sk-circle4 sk-child"></div>
+								    <div class="sk-circle5 sk-child"></div>
+									<div class="sk-circle6 sk-child"></div>
+									<div class="sk-circle7 sk-child"></div>
+									<div class="sk-circle8 sk-child"></div>
+									<div class="sk-circle9 sk-child"></div>
+									<div class="sk-circle10 sk-child"></div>
+									<div class="sk-circle11 sk-child"></div>
+									<div class="sk-circle12 sk-child"></div>
+								</div>			
+							</div>
 						</form>		
 					</div>
 				</div>
@@ -287,21 +304,35 @@
 				</div>
 				<div class="row section-form-contact">
 					<div class="contact-box-one col-md-6 col-xs-12">
-						<form class="form-contact"> 
-							<div>
-								<div class="form-group contact">
-									<label for="author" class="control-label">Please, write a message to us!</label>
-								</div>
-								<div class="form-group contact">
-									<input type="text" class="form-control" placeholder="Your email...">
-								</div>
-								<div class="form-group contact">
-									<input type="text" class="form-control" placeholder="Your phone number...">
-								</div>
-								<div class="form-group contact">
-									<textarea id="area" name="area" class="form-control" placeholder="Your message..."></textarea>
-								</div>
+						<form id="contact-form" class="form-contact" novalidate> 
+							<div class="form-group contact">
+								<label for="author" class="control-label">Please, write a message to us!</label>
+							</div>
+							<div class="form-group contact">
+								<input type="email" name="email" class="form-control" placeholder="Your email...">
+							</div>
+							<div class="form-group contact">
+								<input type="text" name="phone" class="form-control" placeholder="Your phone number..." required >
+							</div>
+							<div class="form-group contact">
+								<textarea id="area" name="area" class="form-control" placeholder="Your message..."></textarea>
+							</div>
+							<div class="form-group wrapper-btn contact">
 								<button type="submit" class="btn contact">SEND</button>
+								<div class="sk-circle">
+									<div class="sk-circle1 sk-child"></div>
+									<div class="sk-circle2 sk-child"></div>
+									<div class="sk-circle3 sk-child"></div>
+									<div class="sk-circle4 sk-child"></div>
+								    <div class="sk-circle5 sk-child"></div>
+									<div class="sk-circle6 sk-child"></div>
+									<div class="sk-circle7 sk-child"></div>
+									<div class="sk-circle8 sk-child"></div>
+									<div class="sk-circle9 sk-child"></div>
+									<div class="sk-circle10 sk-child"></div>
+									<div class="sk-circle11 sk-child"></div>
+									<div class="sk-circle12 sk-child"></div>
+								</div>			
 							</div>
 						</form>
 					</div>
@@ -345,6 +376,7 @@
 		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 
 	

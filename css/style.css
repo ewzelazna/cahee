@@ -390,12 +390,10 @@ button.btn {
 	right: 0;
 }
 
-.blog {
-	position: relative;
-}
 .test .blog{
 	height: 300px;
 	overflow: hidden;
+	position: relative;
 }
 .blog-section {
 	margin: 19px auto;
@@ -593,13 +591,6 @@ textarea.form-control.error {
 		background-color: transparent;
 	}
 
-	.nav > li:hover:before {
-	 	content: "";
-	 	display: block;
-	 	border-top: 3px solid #ff6033;
-	 	margin-top: -3px;
-    }
-
     .wrapper-nav.scroll-top {
 		background-color: #fff;
 		-webkit-box-shadow: 1px 9px 17px -9px rgba(0,0,0,0.75);
@@ -632,13 +623,6 @@ textarea.form-control.error {
 		box-shadow: 1px 9px 17px -9px rgba(0,0,0,0.75);
 		z-index: 1000;
 	}
-
-    .nav > li a:hover:before {
-	 	content: "";
-	 	display: block;
-	 	border-top: 3px solid #ff6033;
-	 	margin-top: -3px;
-    }
 
 	.photo-service h2 {
 	    top: 385px;
@@ -685,13 +669,17 @@ textarea.form-control.error {
 		z-index: 1000;
 	}
 
-	.nav > li a:hover:before {
+}
+
+@media all and (min-width: 767px) {
+	
+	.nav > li a:hover:before,
+	.nav > li a.active:before {
 	 	content: "";
 	 	display: block;
 	 	border-top: 3px solid #ff6033;
 	 	margin-top: -3px;
     }
-
 }
 
 @media all and (max-width: 991px)  {

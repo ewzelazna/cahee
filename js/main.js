@@ -4,6 +4,7 @@ getGallery();
 getBlog();
 sendForms();
 validation();
+activeMenu();
 
 // funkcja dodająca fixed do nav
 function navTop () {
@@ -272,6 +273,30 @@ function validation() {
 		}
 
 	});
+}
+
+//active menu navigation on scroll
+
+function activeMenu(){
+
+	$(document).on("scroll", onScroll);
+
+	function onScroll(){
+
+	    var scrollPos = $(document).scrollTop();
+
+	    $('a.nav-link').each(function () {
+	        var currLink = $(this).attr("href");
+	      
+	        if (Math.floor($(currLink).position().top) <= scrollPos && Math.floor($(currLink).position().top) + $(currLink).height() > scrollPos ) {
+	        	$(this).addClass("active");
+
+	  		} else {
+	  			$(this).removeClass("active");
+	        
+	        }
+	    }); 
+	}
 }
 
 

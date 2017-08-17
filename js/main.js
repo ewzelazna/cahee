@@ -138,7 +138,7 @@ function getBlog() {
 					my_date = new Date();
 					month = my_date.toString().split(" ")[1].toUpperCase();
 
-					html += '<div class="blog-section col-md-4 col-xs-8 blog-display test">'+
+					html += '<div class="blog-section col-md-4 col-xs-8 blog-display add">'+
 								'<div class="blog-img">'+
 									'<div class="blog">'+
 										'<p class="ontop">'+day+' '+month+'</p>'+
@@ -158,7 +158,7 @@ function getBlog() {
 			$('#blog .btn-loader-section').removeClass('inactive-link');
 
 		}).catch(function(erresponse){
-		console.log("aaa");
+		console.log("Błąd");
 		});
 	});
 }
@@ -288,9 +288,8 @@ function activeMenu(){
 	    $('a.nav-link').each(function () {
 	        var currLink = $(this).attr("href");
 	      
-	        if (Math.floor($(currLink).position().top) <= scrollPos && Math.floor($(currLink).position().top) + $(currLink).height() > scrollPos ) {
+	        if (Math.floor($(currLink).position().top) <= scrollPos &&  scrollPos < Math.floor($(currLink).position().top) + $(currLink).height() ) {
 	        	$(this).addClass("active");
-
 	  		} else {
 	  			$(this).removeClass("active");
 	        
